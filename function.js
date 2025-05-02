@@ -21,7 +21,7 @@ const functions = {
     return Array.from(
       randomValues,
       (value) => characters[value % charLength],
-    ).join("");
+    ).join(""); //O(n)
   },
   fetchUser: () =>
     fetch("https://jsonplaceholder.typicode.com/users/1")
