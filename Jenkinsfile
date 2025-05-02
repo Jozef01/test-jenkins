@@ -17,7 +17,7 @@ pipeline {
                   node -v
                   npm -v
                   npm install
-                  npm run jest  // <-- Should be 'npm run jest' or 'npx jest'
+                  npm run test  // <-- Should be 'npm run jest' or 'npx test'
                 '''
             }
         }
