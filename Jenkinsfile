@@ -1,19 +1,25 @@
 pipeline {
-  agent {
-    docker {
-     image 'node:lts-alpine'
+    agent {
+        docker {
+            image 'node:lts-alpine'
+        }
     }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
 
-  stages {
-    stage('test') {
-      steps {
-        sh '''
-          node -v
-          npm -v
-          npm install
-          npm jest
-        '''
-      }
+        stage('test') {
+            steps {
+                sh '''
+                  node -v
+                  npm -v
+                  npm install
+                  npm run jest  // <-- Should be 'npm run jest' or 'npx jest'
+                '''
+            }
+        }
     }
-  }
-  }
+}
